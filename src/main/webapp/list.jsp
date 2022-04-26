@@ -20,7 +20,9 @@
 		
 		<c:forEach items="${list}" var="dto" >
 		<tr>
-			<td>${dto.btitle }</td>
+			<td>
+			<a href="content_view.do?bid=${dto.bid }">${dto.btitle }</a>
+			</td>
 			<td align="center">${dto.bid }</td>
 			<td align="center">${dto.bname }</td>
 			<td align="center">${dto.bhit }</td>

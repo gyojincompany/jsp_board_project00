@@ -77,6 +77,12 @@ public class BFrontController extends HttpServlet {
 			command.execute(request, response);
 			
 			viewPage = "list.do";
+		} else if(com.equals("/content_view.do")) {//글쓰기 요청
+			
+			command = new BContentCommand();//업캐스팅
+			command.execute(request, response);
+			
+			viewPage = "content_view.jsp";
 		} 
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
