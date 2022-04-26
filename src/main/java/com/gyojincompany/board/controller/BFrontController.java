@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gyojincompany.board.command.BCommand;
-import com.gyojincompany.board.command.BWriteCommand;
+import com.gyojincompany.board.command.*;
 
 /**
  * Servlet implementation class BFrontController
@@ -56,7 +55,8 @@ public class BFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());//전체 url에서 context 경로 길이만큼 빼기
 		
 		if(com.equals("/list.do")) {//글목록 보기 요청
-			
+			command = new BListCommand();//업캐스팅
+			command.execute(request, response);			
 			
 			viewPage = "list.jsp";
 		} else if(com.equals("/write_view.do")) {//글내용보기 요청			

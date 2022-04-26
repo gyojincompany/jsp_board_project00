@@ -18,12 +18,12 @@
 			<td><b>조회수</b></td>
 		</tr>
 		
-		<c:forEach begin="1" end="10">
+		<c:forEach items="${list}" var="dto" >
 		<tr>
-			<td>1</td>
-			<td>1</td>
-			<td>1</td>
-			<td>1</td>
+			<td>${dto.btitle }</td>
+			<td align="center">${dto.bid }</td>
+			<td align="center">${dto.bname }</td>
+			<td align="center">${dto.bhit }</td>
 		</tr>
 		</c:forEach>
 		<tr>
