@@ -68,8 +68,10 @@ public class BFrontController extends HttpServlet {
 			
 		} else if(com.equals("/modify.do")) {//글수정 요청
 			
-//			command = new BModifyCommand();
-//			command.execute(request, response);
+			command = new BModifyCommand();
+			command.execute(request, response);
+			
+			viewPage = "list.do";
 			
 		} else if(com.equals("/write.do")) {//글쓰기 요청
 			
