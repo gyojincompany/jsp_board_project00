@@ -63,8 +63,10 @@ public class BFrontController extends HttpServlet {
 			viewPage = "write_view.jsp";
 		} else if(com.equals("/delete.do")) {//글삭제 요청
 			
-//			command = new BDelteCommand();
-//			command.execute(request, response);
+			command = new BDeleteCommand();
+			command.execute(request, response);
+			
+			viewPage = "list.do";
 			
 		} else if(com.equals("/modify.do")) {//글수정 요청
 			
