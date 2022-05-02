@@ -101,6 +101,8 @@ public class BDao {
 	
 	public BDto content_view(String strid) {
 		
+		upHit(strid);//실행될때마다 조회수(bhit)가 1 증가하는 함수
+		
 		BDto dto = null;
 		
 		String sql = "SELECT * FROM jsp_board WHERE bid=?";		
@@ -220,6 +222,40 @@ public class BDao {
 			
 		}	
 		
+	}
+	
+	private void upHit(String bid) {
+		
+		String sql = "UPDATE jsp_board SET bhit = bhit + 1 WHERE bid = ?";
+		
+		int dbFlag = 0;		
+		Connection conn = null;
+		PreparedStatement pstmt = null;//sql 실행 객체
+		
+		try {
+			Class.forName(driverName);//jdbc 드라이버 로딩
+			conn = DriverManager.getConnection(url, user, password);//DB 연동			
+			pstmt = conn.prepareStatement(sql);			
+			
+			pstmt.setString(1, bid);
+			
+			dbFlag = pstmt.executeUpdate();//sql실행->실행 성공시 1 반환
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}			
+			
+		}		
 	}
 	
 }
