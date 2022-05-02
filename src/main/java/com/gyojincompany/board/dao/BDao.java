@@ -103,7 +103,7 @@ public class BDao {
 		
 		BDto dto = null;
 		
-		String sql = "SELECT * FROM jsp_board WHERE id=?";		
+		String sql = "SELECT * FROM jsp_board WHERE bid=?";		
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;//sql 실행 객체
